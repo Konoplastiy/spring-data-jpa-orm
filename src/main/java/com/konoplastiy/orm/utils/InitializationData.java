@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import com.konoplastiy.orm.entities.*;
 import com.konoplastiy.orm.repositories.StudentIdCardRepository;
 import com.konoplastiy.orm.repositories.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 
 import java.time.LocalDateTime;
@@ -15,7 +16,7 @@ public class InitializationData implements CommandLineRunner {
 
     private final StudentIdCardRepository studentIdCardRepository;
 
-
+    @Autowired
     public InitializationData(StudentRepository studentRepository, StudentIdCardRepository studentIdCardRepository) {
         this.studentRepository = studentRepository;
         this.studentIdCardRepository = studentIdCardRepository;
@@ -59,14 +60,14 @@ public class InitializationData implements CommandLineRunner {
         student.addEnrolment(new Enrolment(
                 new EnrolmentId(1L, 2L),
                 student,
-                new Course("Amigoscode Spring Data JPA", "IT"),
+                new Course("Spring Data JPA", "IT"),
                 LocalDateTime.now().minusDays(18)
         ));
 
         student.addEnrolment(new Enrolment(
                 new EnrolmentId(1L, 2L),
                 student,
-                new Course("Amigoscode Spring Data JPA", "IT"),
+                new Course("Spring Data JPA", "IT"),
                 LocalDateTime.now().minusDays(18)
         ));
 
